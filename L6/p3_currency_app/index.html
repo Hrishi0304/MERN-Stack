@@ -1,0 +1,45 @@
+<html>
+<head>
+	<title>Currency</title>
+	<style>
+		*{font-size:40px;font-family:Century,Calibri;}
+		body{background-color:azure;}
+		h2{width:70%;border:groove;border-radius:30px;padding:8px 15px;}
+	</style>
+	<script>
+		function convert(){
+			event.preventDefault();
+			let usd = document.getElementById("usd");
+			let ans = document.getElementById("ans");
+			let url = "https://api.exchangerate-api.com/v4/latest/usd";
+			if(usd.value==""){
+				alert("You did not enter any amount");
+				ans.innerHTML = "";
+				usd.focus();
+				return;
+			}
+			fetch(url)
+			.then(res => res.json())
+			.then(data =>{
+				let inr = data.rates.INR;
+				let dollar = parseFloat(usd.value);
+				let rupees = inr*dollar;
+				let msg = "\u20B9" + rupees.toFixed(2);
+				ans.innerHTML = msg;
+			})
+			.catch(err => quote.innerHTML = "issue: " + err);
+		}
+	</script>
+</head>
+<body>
+<center>
+	<h1>Currency Converter</h1>
+	<form onsubmit="convert()">	
+		<input type="number" step="any" placeholder="Amount in $" id="usd"/>
+		<br><br>
+		<input type="submit" value="Convert to &#8377"/>
+	</form>
+	<h2 id="ans"/>
+</center>
+</body>
+</html>

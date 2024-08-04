@@ -1,0 +1,64 @@
+<html>
+<head>
+	<title>Birthday App</title>
+	<style>
+		*{font-size:50px;font-family:Century;}
+		body{background-color:lightblue;}
+		.btn{width:20%;margin:20px;border-radius:30px;}
+		.btn:hover{background-color:red;color:white;}
+	</style>
+	<script>
+		let names = ["amit","sumit"];
+		function operation(){
+			event.preventDefault();	
+			let msg = document.getElementById("msg");
+			let action = document.activeElement.value;
+
+			if(action=="Add"){
+				let n = prompt("enter name");
+				if(n.trim()!=""){
+					names.push(n);
+				}
+				msg.innerHTML = names;
+			}
+			else if(action=="Remove"){
+				let n = prompt("enter name");
+				if(names.indexOf(n)==-1){
+					alert("name not found");
+				}
+				else{
+					names.splice(names.indexOf(n),1);
+					alert("removed");
+				}
+				msg.innerHTML = names;
+			}
+			else if(action=="Show"){
+				msg.innerHTML = names;
+			}
+			
+			let lang = "";
+			if(py.checked) lang = lang + " Python ";
+			if(ja.checked) lang = lang + " Java ";
+			if(js.checked) lang = lang + " JavaScript ";
+			
+			if(lang.length==0){
+				msg.innerHTML = name.value + " you don't know any languages are you serious?";
+			}
+			else{
+				msg.innerHTML = name.value + " you know " + lang + " that's great!";
+			}
+		}
+	</script>
+</head>
+<body>
+<center>
+	<h1>Birthday App</h1>
+	<form onsubmit="operation()">
+		<input type="submit" value="Add" class="btn"/> 
+		<input type="submit" value="Remove" class="btn"/> 
+		<input type="submit" value="Show" class="btn"/> 
+	</form>
+	<h2 id="msg"/>
+</center>
+</body>
+</html>

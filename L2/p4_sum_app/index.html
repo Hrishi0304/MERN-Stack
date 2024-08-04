@@ -1,0 +1,71 @@
+<html>
+<head>
+	<title>Sum Finder App</title>
+	<style>
+		*{ font-size:40px;font-family:Century}
+		body{background-color:azure;}
+		input[type="submit"]{ background-color:tomato;color:white; border: none; margin:10px}
+	</style>
+	<script>
+		function findSum(){
+			event.preventDefault();
+			let num = document.getElementById("num");
+			let msg = document.getElementById("msg");
+			let action = document.activeElement.value;
+			if(num.value==""){
+				alert("Number is empty");
+				msg.innerHTML = "";
+				num.focus();
+				return;
+			}
+			
+			let n = parseInt(num.value);
+			if(n<0){
+				alert("-ve number not allowed");	
+				msg.innerHTML = "";
+				num.focus();
+				return;
+			}
+			if(action=="M1"){
+				//for loop
+				let sum = 0;
+				for(let i=1;i<=n;i++){
+					sum = sum+i;
+				}
+				msg.innerHTML = "sum1 = " + sum;
+			}
+			else if(action=="M2"){
+				//while loop
+				let i=1,sum=0;
+				while(i<=n){
+					sum = sum + i;
+					i++;
+				}
+				msg.innerHTML = "sum2 = " + sum;
+			}
+			else if(action=="M3"){
+				//do while loop
+				let i=1,sum=0;
+				do{
+					sum = sum + i;
+					i++;
+				}while(i<=n);
+				msg.innerHTML = "sum3 = " + sum;
+			}
+		}
+	</script>
+</head>
+<body>
+<center>
+	<h1>Sum Finder App</h1>
+	<form onsubmit="findSum()">
+		<input type="number" placeholder="Enter +ve integer" id="num"/>
+		<br><br>
+		<input type="submit" value="M1"/>
+		<input type="submit" value="M2"/>
+		<input type="submit" value="M3"/>
+	</form>
+	<h2 id="msg"/>
+</center>
+</body>
+</html>

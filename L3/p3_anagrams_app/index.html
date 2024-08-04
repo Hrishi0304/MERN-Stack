@@ -1,0 +1,56 @@
+<html>
+<head>
+	<title>Name App by Kamal Sir</title>
+	<style>
+		*{font-size:40px; font-family: Century;}
+		body{ background-color: azure;}
+	</style>
+	<script>
+		function areAnagrams(){
+			event.preventDefault();
+			let name1 = document.getElementById("name1");
+			let name2 = document.getElementById("name2");
+			let msg = document.getElementById("msg");
+			if(name1.value.trim()=="" || name2.value.trim()==""){
+				alert("Enter words in both inputs");
+				msg.innerHTML = "";
+				name.focus();
+				return;
+			}
+			else if(!name1.value.match(/^[A-Za-z ]+$/) && !name2.value.match(/^[A-Za-z ]+$/)){
+				alert("Name should contain only Alphabets");
+				msg.innerHTML = "";
+				name.focus();
+				name.value="";
+				return;
+			}
+			let first_name = name1.value.split("");
+			let second_name = name2.value.split("");
+			let r1 = first_name.sort();
+			let sort1_name = r1.join("");
+			r2 = second_name.sort();
+			let sort2_name = r2.join("");
+			if(sort1_name===sort2_name){
+				msg.innerHTML = "They are anagrams";
+			}
+			else{
+				msg.innerHTML = "They are not anagrams";
+			}
+		}
+	</script>
+</head>
+<body>
+<center>
+	<h1>Sort Name My App</h1>
+	<form onsubmit="areAnagrams()">
+		<input type="text" placeholder="Enter first word" id="name1"/>
+		<br><br>
+		<input type="text" placeholder="Enter second word" id="name2"/>
+		<br><br>
+
+		<input type="submit" value="Check"/>
+	</form>
+	<h2 id="msg"/>
+</center>
+</body>
+</html>

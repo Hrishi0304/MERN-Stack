@@ -1,0 +1,69 @@
+<html>
+<head>
+	<title>Languages App</title>
+	<style>
+		*{font-size:50px;font-family:Century;}
+		body{background-color:lightblue;}
+		input[type="checkbox"]{width:3%;height:0.5em;}
+	</style>
+	<script>
+		function show(){
+			event.preventDefault();	
+	
+			let name = document.getElementById("name");
+			let py = document.getElementById("py");
+			let ja = document.getElementById("ja");
+			let js = document.getElementById("js");
+			let msg = document.getElementById("msg");
+
+			if(name.value==""){
+				alert("Name should not be empty");
+				msg.innerHTML = "";
+				name.focus();
+				return;
+			}
+			else if(name.value.trim()==""){
+				alert("Name should not contain blank spaces");
+				name.value="";
+				msg.innerHTML = "";
+				name.focus();
+				return;
+			}
+			else if(!name.value.match("^[A-Za-z ]+$")){
+				alert("Name should contain only alphabets");
+				name.value="";
+				msg.innerHTML = "";
+				name.focus();
+				return;
+			}
+			
+			let lang = "";
+			if(py.checked) lang = lang + " Python ";
+			if(ja.checked) lang = lang + " Java ";
+			if(js.checked) lang = lang + " JavaScript ";
+			
+			if(lang.length==0){
+				msg.innerHTML = name.value + " you don't know any languages are you serious?";
+			}
+			else{
+				msg.innerHTML = name.value + " you know " + lang + " that's great!";
+			}
+		}
+	</script>
+</head>
+<body>
+<center>
+	<h1>Languages App</h1>
+	<form onsubmit="show()">
+		<input type="text" placeholder="Enter your name" id="name"/>
+		<br><br>
+		<input type="checkbox" id="py"/> Python
+		<input type="checkbox" id="ja"/> Java
+		<input type="checkbox" id="js"/> JavaScript
+		<br><br>
+		<input type="submit"/>
+	</form>
+	<h2 id="msg"/>
+</center>
+</body>
+</html>

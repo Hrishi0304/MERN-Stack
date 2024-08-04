@@ -1,0 +1,42 @@
+<html>
+<head>
+	<title>Motivation API</title>
+	<style>
+		*{font-size:40px;font-family:Century,Calibri;}
+		body{background-color:azure;}
+		h2{width:70%;border:groove;border-radius:30px;padding:8px 15px;}
+	</style>
+	<script>
+		function getMsg(){
+			event.preventDefault();
+			let quote = document.getElementById("quote");
+			let author = document.getElementById("author");
+			let shareBtn = document.getElementById("share");
+			let url = "https://api.quotable.io/random";
+			fetch(url)
+			.then(res => res.json())
+			.then(data =>{
+				quote.innerHTML = data.content;
+				author.innerHTML = data.author;
+                    		let message = encodeURIComponent(data.content);
+                    		let authorText = encodeURIComponent(data.author);
+                    		shareBtn.href = "whatsapp://send?text=" + message + "%0A" + authorText;
+			})
+			.catch(err => quote.innerHTML = "issue: " + err);
+		}
+	</script>
+</head>
+<body>
+<center>
+	<h1>Motivational App</h1>
+	<form onsubmit="getMsg()">
+		<input type="submit" value="Get Message"/>
+	</form>
+	<h2 id="quote"></h2>
+	<h2 id="author"></h2>
+	<a id="share" href="" target="_blank">
+        	<button>Share</button>
+    	</a>
+</center>
+</body>
+</html>

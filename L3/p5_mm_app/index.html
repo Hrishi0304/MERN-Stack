@@ -1,0 +1,32 @@
+<html>
+<head>
+	<title>Motivational Message</title>
+	<style>
+		*{font-size:40px; font-family: Century;}
+		body{background-color: azure;}
+		#msg{font-family: cursive;}
+	</style>
+	<script>
+		function getMessage(){
+			let msg = document.getElementById("msg");		
+			let motivationalMessages = ["Do or die.","Keep hustling."];
+			let arrLen = motivationalMessages.length;
+			let randIdx = parseInt(Math.random()*arrLen);
+			if(localStorage.getItem("idx")!=randIdx){
+				msg.innerHTML = motivationalMessages[randIdx];
+			}
+			localStorage.setItem("idx",randIdx);
+		}
+	</script>
+</head>
+<body>
+<center>
+	<h1>Here's a motivational advice for you</h1>
+	<h2 id="msg"/>
+</center>
+	<script>
+		getMessage();
+		setInterval(getMessage,10000);
+	</script>
+</body>
+</html>

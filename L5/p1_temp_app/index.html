@@ -1,0 +1,36 @@
+<html>
+<head>
+	<title>Temperature App</title>
+	<style>
+		*{font-size:50px;font-family:Century;}
+		body{background-color:lightblue;}
+	</style>
+</head>
+<body>
+<center>
+	<h1>Temperature Converter</h1>
+	<form>
+		<label>Temperature in Celsius</label>
+		<input type="number" step="any" placeholder="Temp in Cel" id="cel"/> 
+		<br><br>
+		<label>Temperature in Fahrenheit</label>
+		<input type="number" step="any" placeholder="Temp in Fah" id="fah"/> 
+		<br><br>
+	</form>
+	<script>
+		let cel = document.getElementById("cel");
+		let fah = document.getElementById("fah");
+		cel.addEventListener("input",function(){
+			let c = parseFloat(cel.value);
+			let f = (c*9/5) + 32;
+			fah.value = f.toFixed(2);
+		});
+		fah.addEventListener("input",function(){
+			let f = parseFloat(fah.value);
+			let c = (f-32)*5/9;
+			cel.value = c.toFixed(2);
+		});
+	</script>
+</center>
+</body>
+</html>

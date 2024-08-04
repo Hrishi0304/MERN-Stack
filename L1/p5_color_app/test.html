@@ -1,0 +1,31 @@
+<html>
+<head>
+	<title>Bg Color App</title>
+	<style>
+		*{font-size:50px;font-family:Century;}
+		body{background-color:yellow}
+	</style>
+	<script>
+		function change(){
+			event.preventDefault();	
+			let btn = document.activeElement.value;
+			if(btn=="Red")
+				document.body.style.backgroundColor = "red";
+			else if(btn=="Green")
+				document.body.style.backgroundColor = "green";
+			else if(btn=="Blue")
+				document.body.style.backgroundColor = "blue";
+		}
+	</script>
+</head>
+<body>
+<center>
+	<h1>Change color</h1>
+	<form onsubmit="change()">
+		<input type="submit" value="Red"/>
+		<input type="submit" value="Green"/>
+		<input type="submit" value="Blue"/>
+	</form>
+</center>
+</body>
+</html>

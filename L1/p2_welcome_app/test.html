@@ -1,0 +1,42 @@
+<html>
+<head>
+	<title>App 2 by Kamal Sir</title>
+	<style>
+		*{font-size:40px;font-family:Century;}
+		body{background-color: lightblue;}
+	</style>
+</head>
+<body>
+	<center>
+		<h1>Welcome App</h1>
+		<h2 id="msg"></h2>
+	</center>
+	<script>
+		let msg = document.getElementById("msg");
+		let date = new Date();
+		//let hours = date.getHours();
+		let hours = 14;
+		//msg.innerHTML = hours;
+		if(hours>=4 && hours<12){
+			msg.innerHTML = "Good Morning";
+			msg.style.fontFamily = "cursive";
+			document.body.style.backgroundColor = "yellow";
+		}
+		else if(hours>=12 && hours<16){
+			msg.innerHTML = "Good Afternoon";
+			msg.style.fontFamily = "math";
+			document.body.style.backgroundColor = "green";
+		}
+		else if(hours>=16 && hours<21){
+			msg.innerHTML = "Good Evening";
+			msg.style.fontFamily = "Arial";
+			document.body.style.backgroundColor = "blue";
+		}
+		if(hours>=21 || hours%24<4){
+			msg.innerHTML = "Good Night";
+			msg.style.fontFamily = "Century";
+			document.body.style.backgroundColor = "red";
+		}
+	</script>
+</body>
+</html>

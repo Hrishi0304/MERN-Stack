@@ -1,0 +1,47 @@
+<html>
+<head>
+	<title>Addition App</title>
+	<style>
+		*{font-size:50px;font-family:Century;}
+		body{background-color:azure;}
+	</style>
+	<script>
+		function add(){
+			event.preventDefault();
+			let num1 = document.getElementById("num1");
+			let num2 = document.getElementById("num2");
+			if(num1.value==""){
+				alert("Enter first number");
+				num2.value="";
+				ans.innerHTML = "";
+				num1.focus();
+				return;
+			}
+			if(num2.value==""){
+				alert("Enter second number");
+				num1.value = "";
+				ans.innerHTML = "";
+				num2.focus();
+				return;
+			}	
+			let n1=parseFloat(num1.value);
+			let n2=parseFloat(num2.value);
+			let res = n1+n2;
+			ans.innerHTML = "Sum of " + n1 + " and " + n2 + " is " +res;
+		}
+	</script>
+</head>
+<body>
+<center>
+	<h1>Addition</h1>
+	<form onsubmit="add()">
+		<input type="number" placeholder="Enter first number" id="num1"/>
+		<br><br>
+		<input type="number" placeholder="Enter second number" id="num2"/>
+		<br><br>
+		<input type="submit" value="Add"/>
+	</form>	
+	<h2 id="ans"/>
+</center>
+</body>
+</html>

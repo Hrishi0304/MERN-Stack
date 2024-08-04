@@ -1,0 +1,44 @@
+<html>
+<head>
+	<title>Name App by Kamal Sir</title>
+	<style>
+		*{font-size:40px; font-family: Century;}
+		body{ background-color: azure;}
+	</style>
+	<script>
+		function check(){
+			event.preventDefault();
+			let name = document.getElementById("name");
+			let msg = document.getElementById("msg");
+			if(name.value.trim()==""){
+				alert("You did not enter name");
+				msg.innerHTML = "";
+				name.focus();
+				return;
+			}
+			else if(!name.value.match(/^[A-Za-z ]+$/)){
+				alert("Name should contain only Alphabets");
+				msg.innerHTML = "";
+				name.focus();
+				name.value="";
+				return;
+			}
+			let r1 = name.value.split("");
+			let r2 = r1.sort();
+			let ans = r2.join("");
+			msg.innerHTML = ans;
+		}
+	</script>
+</head>
+<body>
+<center>
+	<h1>Sort Name My App</h1>
+	<form onsubmit="check()">
+		<input type="text" placeholder="Enter your name" id="name"/>
+		<br><br>
+		<input type="submit" value="Submit"/>
+	</form>
+	<h2 id="msg"/>
+</center>
+</body>
+</html>

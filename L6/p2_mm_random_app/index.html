@@ -1,0 +1,36 @@
+<html>
+<head>
+	<title>Motivation</title>
+	<style>
+		*{font-size:40px;font-family:Century,Calibri;}
+		body{background-color:azure;}
+		h2{width:70%;border:groove;border-radius:30px;padding:8px 15px;}
+	</style>
+	<script>
+		function getMessage(){
+			let quote = document.getElementById("quote");
+			let author = document.getElementById("author");
+			let url = "https://api.quotable.io/random";
+			fetch(url)
+			.then(res => res.json())
+			.then(data =>{
+				quote.innerHTML = data.content;
+				author.innerHTML = data.author;
+			})
+			.catch(err => quote.innerHTML = "issue: " + err);
+		}
+	</script>
+</head>
+<body>
+<center>
+	<h1>Motivational App</h1>
+
+	<h2 id="quote"/>
+	<h2 id="author"/>
+</center>
+<script>
+		getMessage();
+		setInterval(getMessage,10000);
+</script>
+</body>
+</html>

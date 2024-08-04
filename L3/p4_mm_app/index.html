@@ -1,0 +1,27 @@
+<html>
+<head>
+	<title>Motivational Message</title>
+	<style>
+		*{ font-size:50px;font-family:Century; }
+		body{ backgorund-color: slatewhite; }
+	</style>
+	<script>
+		function getMessage(){
+			event.preventDefault();
+			const motivationalMessages = ["Do or die.","Keep hustling.","Stay focused.","Never give up.","Dream big.","Work hard.","Stay hungry.","Keep pushing.","Be relentless.","Stay motivated.","Keep grinding.","Embrace the journey.","Keep moving forward.","Stay positive.","Rise and grind.","Be unstoppable.",];
+			let arrLen = motivationalMessages.length;
+			let randIdx = parseInt(Math.random()*arrLen);
+			msg.innerHTML = motivationalMessages[randIdx];
+		}
+	</script>
+</head>
+<body>
+<center>
+	<h1>Motivational message wallah</h1>
+	<form onsubmit="getMessage()">
+		<input type="submit" value="Get Message"/>
+	</form>
+	<h2 id="msg"/>
+<center>
+</body>
+</html>

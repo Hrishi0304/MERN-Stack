@@ -1,0 +1,37 @@
+<html>
+<head>
+	<title>Motivational Pro</title>
+	<style>
+		*{ font-size:50px;font-family:Century; }
+		body{ background: linear-gradient(to bottom, white, #808080, black); }
+	</style>
+	<script>
+		const motivationalMessages = ["Do or die.","Keep hustling.","Stay focused.","Never give up.","Dream big.","Work hard.","Stay hungry.","Keep pushing.","Be relentless.","Stay motivated.","Keep grinding.","Embrace the journey.","Keep moving forward.","Stay positive.","Rise and grind.","Be unstoppable."];
+		function getMessage(){
+			event.preventDefault();
+			let arrLen = motivationalMessages.length;
+			let share = document.getElementById("share")
+			randIdx = parseInt(Math.random()*arrLen);
+			msg.innerHTML = motivationalMessages[randIdx];
+
+			//share functionality
+			let message = encodeURIComponent(motivationalMessages[randIdx]);
+			share.href = "whatsapp://send?text="+message;
+		}
+	</script>
+</head>
+<body>
+<center>
+	<h1>Motivational message wallah</h1>
+	<form onsubmit="getMessage()">
+		<input type="submit" value="Get Message"/>
+	</form>
+	<h2 id="msg"></h2>
+	<a id="share" href="" target="_blank">
+		<button id="share">
+			Share
+		</button>
+	</a>
+<center>
+</body>
+</html>

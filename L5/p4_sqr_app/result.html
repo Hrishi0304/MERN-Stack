@@ -1,0 +1,29 @@
+<html>
+<head>
+	<link rel="stylesheet" href="mystyle.css"/>
+	<title>Square Finder</title>
+</head>
+<body>
+<center>
+	<div class="nav">
+		<a href="index.html">Home</a>
+		<a href="about.html">About</a>
+	</div>
+	<h1>Result Page</h1>
+	<h2 id="ans"/>
+	<script>
+		let ans = document.getElementById("ans");
+		let res = localStorage.getItem("result");
+		if(res==null){
+			ans.innerHTML = "You did not enter any number";
+			setTimeout(function(){
+				window.location.href = "index.html";
+			},5000);
+		}	
+		else{
+			ans.innerHTML = "Square = " + res;
+		}
+	</script>
+</center>
+</body>
+</html>

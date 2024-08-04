@@ -1,0 +1,64 @@
+<html>
+<head>
+	<title>Food App</title>
+	<style>	
+		*{font-size: 40px; font-family:Century}
+		body{background-color:lightblue}
+		input[type="submit"]{padding:8px 20px}
+		input[type="radio"]{width:3%; height:0.5em}
+	</style>
+	<script>
+		function show(){
+			event.preventDefault();
+			let name = document.getElementById("name");
+			let ni = document.getElementById("ni");
+			let si = document.getElementById("si");
+			let ff = document.getElementById("ff");
+			let msg = document.getElementById("msg");
+
+			if(name.value==""){
+				alert("Name is empty");
+				msg.innerHTML = "";
+				name.focus();
+				return;
+			}
+			else if(name.value.trim()==""){
+				alert("Name should not contain blank spaces");
+				name.value = "";
+				msg.innerHTML = "";
+				name.focus();
+				return;
+			}
+			else if(!name.value.match("^[A-Za-z ]+$")){
+				alert("Name should not contain numbers");
+				name.value = "";
+				msg.innerHTML = "";
+				name.focus();
+				return;
+			}
+			let choice = "";
+			if(ni.checked) choice = "North Indian";
+			else if(si.checked) choice = "South Indian";
+			else choice = "Fast Food";
+
+			let ans = name.value + " likes " + choice;
+			msg.innerHTML = ans;
+		}
+	</script>
+</head>
+<body>
+<center>
+	<h1>Food App</h1>
+	<form onsubmit="show()">
+		<input type="text" placeholder="Enter your name" id="name"/>
+		<br><br>
+		<input type="radio" name="food" id="ni"/> North Indian
+		<input type="radio" name="food" id="si" checked=true/> South Indian
+		<input type="radio" name="food" id="ff"/> Fast Food
+		<br><br>
+		<input type="submit"/>
+	</form>
+	<h2 id="msg"/>
+</center>
+</body>
+</html>

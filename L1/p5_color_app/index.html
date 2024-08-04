@@ -1,0 +1,34 @@
+<html>
+<head>
+	<title>Color App by Kamal Sir</title>
+	<style>
+		*{ font-size:40px; }
+		body{ background-color:lightyellow; }
+	</style>
+	<script>
+		function color(){
+			event.preventDefault();
+			let elm = document.activeElement.value;
+			if(elm=="Red"){
+				document.body.style.backgroundColor = "red";
+			}
+			else if(elm=="Green"){
+				document.body.style.backgroundColor = "green";
+			}
+			else if(elm=="Blue"){
+				document.body.style.backgroundColor = "blue";
+			}
+		}
+	</script>
+</head>
+<body>
+<center>
+	<h1>Color App</h1>
+	<form onsubmit="color()">
+		<input type="submit" value="Red"/>
+		<input type="submit" value="Green"/>
+		<input type="submit" value="Blue"/>
+	</form>
+</center>
+</body>
+</html>

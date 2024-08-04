@@ -1,0 +1,5 @@
+*{font-size:40px;font-family:Century,Calibri;}
+body{background-color:lightblue}
+.nav{background-color:black;width:50%;border-radius:30px}
+.nav a{color:white;text-decoration:none;margin:30px;}
+h2{border:solid;width:70%;border-radius:30px;}

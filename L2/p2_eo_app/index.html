@@ -1,0 +1,56 @@
+<html>
+<head>
+	<title>Even Odd App</title>
+	<style>
+		*{font-size:40px;font-family:Century;}
+		body{background-color:azure;}
+	</style>
+	<script>
+		function check(){
+			event.preventDefault();
+			let num = document.getElementById("num");
+			let msg = document.getElementById("msg");
+			let action = document.activeElement.value;
+			if(num.value==""){
+				alert("Please enter integer");
+				msg.innerHTML = "";
+				num.focus();
+				return;
+			}
+			let n = parseInt(num.value);
+			if(action=="M1"){
+				let res = n%2==0 ? "even1" : "odd1"
+				msg.innerHTML = res;
+			}
+			else if(action=="M2"){
+				if(n%2==0){
+					msg.innerHTML = "even2";
+				}
+				else{
+					msg.innerHTML = "odd2";
+				}
+			}
+			else if(action=="M3"){
+				switch(n%2){
+					case 0: 	msg.innerHTML = "even3"; break;
+					case 1: 	msg.innerHTML = "odd3"; break;
+					case -1: 	msg.innerHTML = "odd3"; break;
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+<center>
+	<h1>EvenOdd App</h1>
+	<form onsubmit="check()">
+		<input id="num" type="number" placeholder="Enter any integer"/>
+		<br><br>
+		<input type="submit" value="M1"/>
+		<input type="submit" value="M2"/>
+		<input type="submit" value="M3"/>
+	</form>
+	<h2 id="msg"/>
+</center>
+</body>
+</html>

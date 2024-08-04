@@ -1,0 +1,49 @@
+<html>
+<head>
+	<title>App 3 Name App by Kamal Sir </title>
+	<style>
+		*{font-size: 40px;}
+		body{background-color: yellow}
+	</style>
+	<script>
+		function show(){
+			event.preventDefault();
+			let name = document.getElementById("username");
+			let msg = document.getElementById("msg");
+			if(name.value=="" || name.value.trim()==""){
+				alert("Please Enter your name");
+				name.value="";
+				msg.innerHTML = "";
+				name.focus();
+				return;
+			}
+			if(!name.value.match("^[A-Za-z ]+$")){
+				alert("Name should not contain numbers");
+				name.value="";
+				msg.innerHTML = "";
+				name.focus();
+				return;
+			}
+			let date = new Date();
+			let hours = date.getHours();
+			if(hours<12)	
+				msg.innerHTML = "Good Morning " + name.value;
+			else if(hours<16)
+				msg.innerHTML = "Good Afternoon " + name.value;
+			else 
+				msg.innerHTML = "Good Evening " + name.value;
+		}
+	</script>
+</head>
+<body>
+	<center>
+		<h1>Name App <h1>
+		<form onsubmit="show()">
+			<input id="username" type="text" placeholder"Enter your name">
+			<br><br>
+			<input type="submit">
+		</form>
+		<h2 id="msg"/>
+	</center>
+</body>
+</html>
